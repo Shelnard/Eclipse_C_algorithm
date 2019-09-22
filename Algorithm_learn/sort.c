@@ -57,22 +57,4 @@ void fast_sort(int* array, int left, int right)
 }
 
 
-int main(void){
-	int i, array[10];
-	printf("Origin array: ");
-	for(i = 0; i < 10; i++){
-		array[i] = rand()%10;
-		printf("%01d ", array[i]);
-	}
-	printf("\n");
 
-	//bubble_sort(array, 10);
-	fast_sort(array, 0, 9);
-
-	printf("Sorted array: ");
-	for(i = 0; i < 10; i++){
-		printf("%01d ", array[i]);
-	}
-
-	return 0;
-}
