@@ -10,5 +10,7 @@
 
 void bubble_sort(int* array, int len);
 void fast_sort(int* array, int left, int right);
+void merge(int* array, int* temp, int startIndex, int midIndex, int endIndex);
+void merge_sort(int* array, int* temp, int startIndex, int endIndex);
 
 #endif /* INCLUDE_SORT_H_ */

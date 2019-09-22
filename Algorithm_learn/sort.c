@@ -56,5 +56,37 @@ void fast_sort(int* array, int left, int right)
 	fast_sort(array, i + 1, right);
 }
 
+/*
+ * πÈ≤¢≈≈–Ú
+ */
+void merge(int* array, int* temp, int startIndex, int midIndex, int endIndex)
+{
+	int i = startIndex, j = midIndex+1, k = startIndex;
+
+	while(i != midIndex+1 && j != endIndex+1)
+	{
+		if(array[i] < array[j])
+			temp[k++] = array[i++];
+		else
+			temp[k++] = array[j++];
+	}
+
+	while(i != midIndex+1)	temp[k++] = array[i++];
+	while(j != endIndex+1)	temp[k++] = array[j++];
+	for(i = startIndex; i <= endIndex; i++)
+		array[i] = temp[i];
+}
+
+void merge_sort(int* array, int* temp, int startIndex, int endIndex)
+{
+	int midIndex;
+	if(startIndex < endIndex)
+	{
+		midIndex = startIndex + (endIndex - startIndex)/2;
+		merge_sort(array, temp, startIndex, midIndex);
+		merge_sort(array, temp, midIndex + 1, endIndex);
+		merge(array, temp, startIndex, midIndex, endIndex);
+	}
+}
 
 
